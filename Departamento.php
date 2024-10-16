@@ -46,7 +46,7 @@ class Departamento{
                     departamento d
                 INNER JOIN zona z on d.id_zona=z.id_zona
                 WHERE
-                    d.iz_zona='.$iddepto.';';
+                    d.iz_departamento='.$iddepto.';';
         $data = $db->run($sql)->fetchAll();
         return$data; 
 

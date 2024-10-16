@@ -21,16 +21,17 @@ try{
     $arreglo = array();
 
     foreach($respuestas as $respuesta){
-        $arreglo[]['departamento'] = array(
-            "id"=> $respuesta["departamento"]
+        $arreglo[]["departamento"] = array(
+            "id"=> $respuesta["id"],
+            "nombre" => $respuesta["departamento"]
         );
     }
     $arr_headers = getallheaders();
-    if($arr_headers["Accept"]== "aplication/xml"){
+    if($arr_headers["Accept"]== "application/xml"){
         $documento = creaxml( "departamento",$arreglo);
         header("Content-Type: Application/xml");
         echo($documento);   
-    }elseif($arr_headers["Accept"] == "aplication/json"){
+    }elseif($arr_headers["Accept"] == "application/json"){
         header("Content-Type: Application/json");
         echo(json_decode($respuestas));
 
